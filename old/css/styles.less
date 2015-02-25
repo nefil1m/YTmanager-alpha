@@ -1,0 +1,375 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,100,700,900);
+
+@mainColor: #333;
+@secondaryColor: #ccc;
+@headerHeight: 120px;
+
+* {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    border-radius: 0 !important;
+}
+
+body {
+    font-family: "Raleway", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.mainContainer {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+a:hover, a:focus, a:visited, a:active {
+    outline: none;
+}
+
+.add-padding {
+    padding: 25px;
+}
+
+.icon-bar {
+    height: 2px;
+    background: #333;
+    width: 12px;
+    margin: 2px;
+    display: block;
+}
+
+header, footer {
+    background: @mainColor;
+    color: #fff;
+
+    a, a:link {
+        color: #000;
+        text-decoration: underline;
+    }
+
+    a:hover, a:focus, a:visited, a:active {
+        color: @secondaryColor;
+    }
+}
+
+header {
+    border-bottom: 5px solid darken(@mainColor, 10%);
+
+    h1 {
+        font-weight: 900;
+        padding-bottom: 10px;
+
+        span {
+            font-size: 18px;
+            font-weight: 100;
+        }
+    }
+}
+
+#status {
+    right: 0; bottom: 0; left: 0;
+    z-index: 100;
+    position: fixed;
+    font-size: 10px;
+
+    .container {
+        background: lighten(@mainColor, 20%);
+        padding: 10px 0 0 0;
+    }
+
+    .player-buttons {
+        a {
+            color: @secondaryColor;
+            font-size: 18px;
+            margin: 5px;
+            text-decoration: none;
+            opacity: .7;
+
+            &.active {
+                color: #eee;
+                opacity: 1;
+            }
+
+            &:hover, &:active, &:focus {
+                color: #fff;
+                text-decoration: none;
+                outline: none;
+            }
+        }
+    }
+
+    #basic-info {
+        list-style-type: none;
+        color: @secondaryColor;
+
+        li {
+            display: inline-block;
+            font-size: 14px;
+            padding-top: 2px;
+            min-width: 150px;
+
+            span {
+                font-weight: 700;
+                color: #fff;
+            }
+        }
+    }
+}
+
+footer {
+    text-align: center;
+    border-top: 5px solid darken(@mainColor, 10%);
+    padding-bottom: 25px;
+
+    p {
+        line-height: 50px;
+        margin-bottom: 0;
+    }
+}
+
+#main-content {
+    h3 {
+        margin: 25px 0;
+        border-bottom: 1px solid darken(@secondaryColor, 50%);
+
+        a {
+            color: #fff;
+        }
+    }
+
+    .button-container {
+        button {
+            padding: 5px 20px;
+        }
+    }
+
+    .right-side {
+        padding-left: 0;
+    }
+
+    #video-info {
+        width: 800px;
+        margin-top: 20px;
+
+        p {
+            font-weight: 700;
+
+            span {
+                font-weight: 400;
+                font-size: 15px;
+            }
+
+            span:before {
+                font-family: 'Glyphicons Halflings';
+                margin-right: 5px;
+            }
+        }
+
+        .author:before {
+            content: '\e008';
+        }
+
+        .views:before {
+            content: '\e105';
+        }
+
+        .likes:before {
+            content: '\e125';
+            color: green;
+        }
+
+        .dislikes:before {
+            content: '\e126';
+            color: red;
+        }
+
+        .published:before {
+            content: '\e109';
+        }
+
+        .description:before {
+            content: '\270f';
+        }
+    }
+
+    #search {
+        margin-top: 20px;
+        width: 800px;
+
+        input {
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+    }
+}
+
+.user-stuff {
+    h3 {
+        color: #fff;
+    }
+
+    input {
+        max-width: 500px;
+    }
+
+    #playlists-list {
+        max-height: 300px;
+        margin-top: 5px;
+    }
+
+    .add-new-playlist {
+        i {
+            color: green;
+        }
+    }
+}
+
+.videos-container {
+    list-style-type: none;
+    padding: 20px 0;
+
+    &.light {
+        a, p, h3 {
+            color: #333;
+        }
+    }
+
+    &.dark {
+        a, p, h3 {
+            color: #fff;
+        }
+    }
+
+    .videos {
+        li:hover {
+            img {
+                opacity: .5;
+            }
+        }
+
+        li {
+            img {
+                transition: all .3s ease-out;
+                opacity: 1;
+            }
+        }
+    }
+
+    .item {
+        width: 150px;
+        vertical-align: top;
+        padding-top: 5px;
+        margin-right: 5px;
+        display: inline-block;
+        text-align: center;
+
+        a, a:focus, a:active, a:hover, a:visited {
+            text-decoration: none;
+        }
+
+        &:hover {
+            .th {
+                opacity: .8;
+            }
+
+            .dropdown {
+                opacity: 1;
+            }
+        }
+
+        &.active {
+            border: 2px solid green;
+            padding-top: 3px;
+
+            .dropdown {
+                right: 13px;
+            }
+        }
+
+        .th {
+            transition: opacity .2s;
+            opacity: 1;
+            border: 0;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            width: 120px;
+            height: 80px;
+        }
+
+        .text {
+            padding-top: 5px;
+
+            * {
+                display: inline-block;
+            }
+
+            i {
+                font-size: 10px;
+            }
+        }
+
+        .dropdown {
+            float: right;
+            top: 57px; right: 15px;
+            opacity: 0;
+            z-index: 100;
+            height: 0;
+
+            .dropdown-toggle {
+                i {
+                    clear: both;
+                }
+            }
+
+            .dropdown-menu {
+                padding: 0;
+                position: absolute;
+
+                li {
+                    position: relative;
+                    margin-top: -2px;
+                    text-align: left;
+
+                    &:first-child {
+                        margin-top: 0;
+                    }
+                }
+
+                a {
+                    color: @mainColor;
+                    text-align: left;
+                    padding: 5px 10px;
+                }
+
+                .add {
+                    i {
+                        color: green;
+                    }
+                }
+
+                .delete {
+                    i {
+                        color: red;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.modal {
+    .modal-content {
+        box-shadow: 0 0 0;
+        border-radius: 0;
+    }
+
+    .check {
+        padding-top: 5px;
+    }
+
+    .btn, .form-control {
+        border-radius: 0 !important;
+    }
+}
